@@ -1,46 +1,27 @@
-import { useState } from "react";
-import "./App.css";
-import TodoModal from "./components/TodoModal";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [todos, setTodos] = useState([])
+    // fetch all todos from server
 
   return (
     <>
       <div>
-        <h1>TODO</h1>
-
-        <button className="btn" onClick={() => setShowModal(true)}>
-          +
-        </button>
-
-        {todos.map((item) => (
-          <div
-            style={{
-              width: "320px",
-              textAlign: "start",
-              backgroundColor: "#1a1a1a",
-              padding: "16px",
-              borderRadius: "8px",
-              margin: "8px",
-            }}
-          >
-            <h4>title: {item.title}</h4>
-            <p>description: {item.description}</p>
-          </div>
-        ))}
-
-        {showModal && (
-          <TodoModal
-            todos={todos}
-            setTodos={setTodos}
-            showModal={setShowModal}
-          />
-        )}
+        <h1>Easy Todo App</h1>
+        <input type="text" />
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+function Todo(props) {
+    // Add a delete button here so user can delete a TODO.
+    return <div>
+        {props.title}
+    </div>
+}
+
+export default App
